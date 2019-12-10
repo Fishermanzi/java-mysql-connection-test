@@ -1,0 +1,5 @@
+lib
+bin
+.project
+.classpath
+src/br/com/eumesmo/strings
