@@ -13,7 +13,6 @@ import br.com.eumesmo.strings.StaticStrings;
 public class DB {
 
 	private DataSource datasoure;
-//	private Connection con;
 
 	public DB() {
 		try {
@@ -23,28 +22,19 @@ public class DB {
 			pool.setUser(StaticStrings.bancoUsuario);
 			pool.setPassword(StaticStrings.bancoSenha);
 			pool.setMinPoolSize(1);
-	        pool.setAcquireIncrement(5);
-	        pool.setMaxPoolSize(10);
-	        
-			this.datasoure = pool;
-			
+			pool.setAcquireIncrement(5);
+			pool.setMaxPoolSize(10);
+
+			datasoure = pool;
+
 		} catch (PropertyVetoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-//		try {
-//			this.con = DriverManager.getConnection(StaticStrings.bancoUrl,StaticStrings.bancoUsuario,StaticStrings.bancoSenha);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 	}
 
 	public Connection getConnection() throws SQLException {
 		return datasoure.getConnection();
-		
-//		return DriverManager.getConnection(StaticStrings.bancoUrl, StaticStrings.bancoUsuario,
-//				StaticStrings.bancoSenha);
+
 	}
 }

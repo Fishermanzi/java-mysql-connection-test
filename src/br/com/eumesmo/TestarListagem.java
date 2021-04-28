@@ -8,14 +8,18 @@ import br.com.eumesmo.DAO.ProdutoDAO;
 import br.com.eumesmo.model.Produto;
 
 public class TestarListagem {
+
 	public static void main(String[] args) {
-		
+
 		try (Connection connection = new DB().getConnection()) {
 			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
-			
+
 			List<Produto> produtos = produtoDAO.getList();
-			
-			produtos.forEach(System.out::println);
+
+			for (Produto produto : produtos) {
+				System.out.println(produto);
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -23,5 +27,4 @@ public class TestarListagem {
 
 	}
 
-	
 }
